@@ -3,25 +3,25 @@ using System.Collections;
 
 public class CatCam : MonoBehaviour {
 
-	Vector3 cameraLagLoc;
-	public float camUpDistance = 10.0f;
-	public float camBackDistance = -10.0f;
+	public Transform cameraDefaultPos;
+	Transform goalPos;
 	// Use this for initialization
 	void Start () {
-		cameraLagLoc = transform.position;
+		reset ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-		Vector3 groundUnderCat = cameraLagLoc;
-		groundUnderCat.y = 1.0f;
-		Camera.main.transform.position = groundUnderCat + Vector3.up * camUpDistance + Vector3.forward * camBackDistance;
-		Camera.main.transform.LookAt (groundUnderCat);
+	public void reset(){
+		goalPos = cameraDefaultPos;
+	}
+
+	public void setGoal(Transform goal){
+		goalPos = goal;
 	}
 
 	void FixedUpdate(){
-		float lagK = 0.85f;
-		cameraLagLoc = cameraLagLoc * lagK + transform.position * (1.0f - lagK);
+		float lagK = 0.06f;
+		float rotLag = lagK;
+		transform.position = goalPos.transform.position * lagK + transform.position * (1.0f - lagK);
+		transform.rotation = Quaternion.Slerp (transform.rotation, goalPos.transform.rotation, rotLag);
 	}
 }

@@ -33,8 +33,8 @@ public class CatController : MonoBehaviour {
 		jumping = false; 
 		moving = false;
 		jumpHeightTester = 4.0f;
-		ignoreClickTesterLayer = ~LayerMask.GetMask ("ClickTester", "Ignore Raycast");
-		alsoIgnoreMouseClickOnly = ~LayerMask.GetMask ("ClickTester", "Ignore Raycast", "MouseClickOnly");
+		ignoreClickTesterLayer = ~LayerMask.GetMask ("ClickTester", "Ignore Raycast", "CamIgnore");
+		alsoIgnoreMouseClickOnly = ~LayerMask.GetMask ("ClickTester", "Ignore Raycast", "MouseClickOnly", "CamIgnore");
 	}
 
 	void MouseTarget(){

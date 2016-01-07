@@ -24,6 +24,7 @@ public class CatController : MonoBehaviour {
 	float jumpHeightTester;
 	int ignoreClickTesterLayer;
 	int alsoIgnoreMouseClickOnly;
+	Collider previousDestZone = null;
 	// Use this for initialization
 	void Start () {
 		targetMovePoint = transform.position;
@@ -48,23 +49,49 @@ public class CatController : MonoBehaviour {
 			if (clickLayer == LayerMask.NameToLayer("MouseClickOnly")){
 				Vector3 vectDif = floorHit.collider.transform.position - transform.position;
 				float vectLen = vectDif.magnitude;
-				if(vectLen < adjacentMoveMax || Physics.Raycast(transform.position, vectDif, vectLen, alsoIgnoreMouseClickOnly) == false){
+				bool adjHop = vectLen < adjacentMoveMax;
+				if(previousDestZone != null){
+					AdjacentMovement amScript = floorHit.collider.GetComponent<AdjacentMovement>();
+					if(amScript && amScript.colliderMatch(floorHit.collider)){
+						adjHop = true;
+					}
+				}
+				if(adjHop || Physics.Raycast(transform.position, vectDif, vectLen, alsoIgnoreMouseClickOnly) == false){
+//					Debug.Log("vectLen: " + vectLen);
 					Transform goalPos = floorHit.collider.transform.GetChild(0);
 					targetMovePoint = goalPos.position;
 					targetRotation = goalPos.rotation;
+					catGoal.transform.position = goalPos.position;
 					moving = true;
+					previousDestZone = floorHit.collider;
+					if(adjHop){
+						StartJump(goalPos.position);
+					}
 				} else {
-					Debug.Log ("too far and can't see");
+					if(adjHop){
+						MessageManager.instance.PostMessage("You want me to jump where?");
+					}else{
+						MessageManager.instance.PostMessage("I can't jump that far!");
+					}
 				}
 
 			} else if(clickLayer == LayerMask.NameToLayer("Interactable")){
 
 				float distToToy = Vector3.Distance (transform.position, floorHit.collider.transform.position);
 				if(distToToy < whiskerLength){
-					Rigidbody toyRB = floorHit.collider.attachedRigidbody;
-					Debug.Log("toy touched");
-					Vector3 vectDif = floorHit.collider.transform.position - transform.position;
-					toyRB.AddForce(vectDif * catPowForce);
+					ToySpinner tsScript = floorHit.collider.GetComponent<ToySpinner>();
+					Gravity gScript = floorHit.collider.GetComponent<Gravity>();
+					if(tsScript){
+						tsScript.Push();
+					} else if(gScript){
+						gScript.EnableGravity();
+					} else {
+						Rigidbody toyRB = floorHit.collider.attachedRigidbody;
+						Debug.Log("toy touched");
+						Vector3 vectDif = floorHit.collider.transform.position - transform.position;
+						toyRB.AddForce(vectDif * catPowForce);
+					}
+
 
 				} else {
 					Debug.Log("toy out of range");
@@ -74,7 +101,7 @@ public class CatController : MonoBehaviour {
 					Debug.Log("Non default layer clicked " + LayerMask.LayerToName(clickLayer));
 				}
 				catGoal.transform.position = floorHit.point;
-
+				previousDestZone = null;
 				StartCoroutine(WayPointSanityTest());
 			}
 		}

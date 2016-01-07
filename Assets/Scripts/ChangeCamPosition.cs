@@ -26,11 +26,12 @@ public class ChangeCamPosition : MonoBehaviour {
 	}
 
 	void OnTriggerExit(Collider other){
-		if(other.gameObject.layer == LayerMask.NameToLayer("Cat")){
-			catCam.reset ();
-		}
+//		if(other.gameObject.layer == LayerMask.NameToLayer("Cat")){
+//
+//		}
 		if(other.gameObject.layer == LayerMask.NameToLayer("ClickTester")){
 			changeCamPos = false;
+			catCam.reset ();
 		}
 	}
 }

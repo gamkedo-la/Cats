@@ -13,6 +13,8 @@ public class CatController : MonoBehaviour {
 	public float minJumpHeight = 0.2f;
 	public float maxJumpHeight = 2.0f;
 	public float adjacentMoveMax = 1.0f;
+	public AudioClip[] meows;
+	public AudioClip purr;
 
 	Vector3 targetMovePoint;
 	Vector3 targetWayPoint;
@@ -25,12 +27,15 @@ public class CatController : MonoBehaviour {
 	int ignoreClickTesterLayer;
 	int alsoIgnoreMouseClickOnly;
 	Collider previousDestZone = null;
+	AudioSource asource;
+
 	// Use this for initialization
 	void Start () {
 		targetMovePoint = transform.position;
 		targetRotation = transform.rotation;
 		rb = GetComponent<Rigidbody> ();
 		col = GetComponent<Collider> ();
+		asource = GetComponent<AudioSource> ();
 		jumping = false; 
 		moving = false;
 		jumpHeightTester = 4.0f;
@@ -136,6 +141,17 @@ public class CatController : MonoBehaviour {
 		col.enabled = true;
 	}
 
+	void CatSounds(){
+		if(Input.GetKeyDown(KeyCode.M)){
+			asource.clip = meows[Random.Range(0, meows.Length)];
+			asource.Play();
+		}
+		if(Input.GetKeyDown(KeyCode.P)){
+			asource.clip = purr;
+			asource.Play();
+		}
+	}
+
 	void MoveToTarget(){
 		float distToTarget = Vector3.Distance (transform.position, targetMovePoint);
 		if (moving == false) {
@@ -193,5 +209,6 @@ public class CatController : MonoBehaviour {
 			MouseTarget ();
 		}
 		MoveToTarget ();
+		CatSounds ();
 	}
 }

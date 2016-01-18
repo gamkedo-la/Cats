@@ -65,7 +65,7 @@ public class CatController : MonoBehaviour {
 //					Debug.Log("vectLen: " + vectLen);
 					Transform goalPos = floorHit.collider.transform.GetChild(0);
 					targetMovePoint = goalPos.position;
-					targetRotation = goalPos.rotation;
+					targetRotation = Quaternion.LookRotation(goalPos.transform.forward);
 					catGoal.transform.position = goalPos.position;
 					moving = true;
 					previousDestZone = floorHit.collider;
@@ -95,6 +95,10 @@ public class CatController : MonoBehaviour {
 						Debug.Log("toy touched");
 						Vector3 vectDif = floorHit.collider.transform.position - transform.position;
 						toyRB.AddForce(vectDif * catPowForce);
+						SoundWhenHitHardEnough SWHHEScript = floorHit.collider.GetComponent<SoundWhenHitHardEnough>();
+						if(SWHHEScript != null){
+							SWHHEScript.OnCollisionEnter(null);
+						}
 					}
 
 

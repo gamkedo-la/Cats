@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Gravity : MonoBehaviour {
 
-	Rigidbody rb;
+    public int pointValue;
+
+    Rigidbody rb;
 	Collider myCol;
 	void Start(){
 		rb = GetComponent<Rigidbody>();
@@ -13,5 +16,6 @@ public class Gravity : MonoBehaviour {
 	public void EnableGravity(){
 		rb.useGravity = true;
 		myCol.isTrigger = false;
+        ScoreManager.AddPoints(pointValue);
 	}
 }

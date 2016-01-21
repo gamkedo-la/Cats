@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
         if(rollingScore < score)
         {
             rollingScore += rollingScoreInterval;
-            rollingScoreSound.Play();
+//            rollingScoreSound.Play();
 
         }else if(rollingScore >= score)
         {

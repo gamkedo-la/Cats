@@ -61,7 +61,8 @@ public class CatController : MonoBehaviour {
 						adjHop = true;
 					}
 				}
-				if(adjHop || Physics.Raycast(transform.position, vectDif, vectLen, alsoIgnoreMouseClickOnly) == false){
+				RaycastHit jumpableTester;
+				if(adjHop || Physics.Raycast(transform.position, vectDif,out jumpableTester, vectLen, alsoIgnoreMouseClickOnly) == false){
 //					Debug.Log("vectLen: " + vectLen);
 					Transform goalPos = floorHit.collider.transform.GetChild(0);
 					targetMovePoint = goalPos.position;
@@ -77,6 +78,7 @@ public class CatController : MonoBehaviour {
 						MessageManager.instance.PostMessage("You want me to jump where?");
 					}else{
 						MessageManager.instance.PostMessage("I can't jump that far!");
+//						Debug.Log ("View blocked by: " + jumpableTester.collider.name);
 					}
 				}
 

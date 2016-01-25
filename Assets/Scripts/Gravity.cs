@@ -9,12 +9,18 @@ public class Gravity : MonoBehaviour {
 
     public GameObject popUpScore;
 
+    private Canvas canvasComponent;
+
     Rigidbody rb;
 	Collider myCol;
 	void Start(){
+
 		rb = GetComponent<Rigidbody>();
 		myCol = GetComponent<Collider> ();
-	}
+
+        canvasComponent = GameObject.Find("Canvas").GetComponent<Canvas>();
+
+    }
 
 	public void EnableGravity(){
 		rb.useGravity = true;
@@ -25,7 +31,7 @@ public class Gravity : MonoBehaviour {
 
     void DisplayPopUpScore(int points)
     {
-        Canvas canvasComponent = GameObject.Find("Canvas").GetComponent<Canvas>();
+
         GameObject temp = Instantiate(popUpScore) as GameObject;
         temp.transform.SetParent(canvasComponent.gameObject.transform, false);
         temp.GetComponent<Animator>().SetTrigger("hit");

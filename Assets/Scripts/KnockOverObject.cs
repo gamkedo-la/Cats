@@ -8,19 +8,23 @@ public class KnockOverObject : MonoBehaviour {
 
     public GameObject popUpScore;
 
+    private Canvas canvasComponent;
+
     // Use this for initialization
     void Start () {
-	
-	}
+
+        canvasComponent = GameObject.Find("Canvas").GetComponent<Canvas>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other) 
     {
-        if (other.tag == "Player")
+        if (other.collider.tag == "Player" || other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
         {
             Debug.Log("Player Contact");
             DisplayPopUpScore(pointValue);
@@ -28,11 +32,13 @@ public class KnockOverObject : MonoBehaviour {
 
         }
 
+
+
     }
 
     void DisplayPopUpScore(int points)
     {
-        Canvas canvasComponent = GameObject.Find("Canvas").GetComponent<Canvas>();
+
         GameObject temp = Instantiate(popUpScore) as GameObject;
         temp.transform.SetParent(canvasComponent.gameObject.transform, false);
         temp.GetComponent<Animator>().SetTrigger("hit");

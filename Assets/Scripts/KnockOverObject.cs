@@ -25,8 +25,9 @@ public class KnockOverObject : MonoBehaviour {
     void OnCollisionEnter(Collision other) 
     {
         if (other.collider.tag == "Player" || other.gameObject.layer == LayerMask.NameToLayer("Interactable"))
+        //if (other.gameObject.layer == LayerMask.NameToLayer("SphereCollider"))
         {
-            Debug.Log("Player Contact");
+            Debug.Log("Sphere");
             DisplayPopUpScore(pointValue);
             ScoreManager.AddPoints(pointValue);
 

@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 
     public static int score;
     public Text text;
-    public AudioSource rollingScoreSound;
+    private AudioSource rollingScoreSound;
 
     //the rolling score displayed on screen
     public int rollingScore;

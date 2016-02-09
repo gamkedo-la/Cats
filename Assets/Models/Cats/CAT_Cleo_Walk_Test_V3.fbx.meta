@@ -1,0 +1,383 @@
+fileFormatVersion: 2
+guid: 6d86bbf8bd66f1147b3eafa8e0e0421b
+timeCreated: 1455017843
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: CAT_Cleo_MediumMesh_Export:Cleo_High
+    100002: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart0
+    100004: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart1
+    100006: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart2
+    100008: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart3
+    100010: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj
+    100012: //RootNode
+    100014: Control
+    100016: nurbsCircle5
+    100018: pasted__group1
+    100020: pasted__ikHandle1
+    100022: pasted__ikHandle2
+    100024: pasted__ikHandle3
+    100026: pasted__ikHandle4
+    100028: pasted__ikHandle5
+    100030: pasted__ikHandle6
+    100032: pasted__ikHandle7
+    100034: pasted__ikHandle8
+    100036: pasted__joint_back_CTRL
+    100038: pasted__joint_Head
+    100040: pasted__joint_Head_CTRL
+    100042: pasted__joint_Head_offset
+    100044: pasted__joint_L_Ankle
+    100046: pasted__joint_L_backKnee
+    100048: pasted__joint_L_Foot
+    100050: pasted__joint_L_frontLeg_CTRL
+    100052: pasted__joint_L_frontLeg_offset
+    100054: pasted__joint_L_Hind_Ankle
+    100056: pasted__joint_L_Hind_backKnee
+    100058: pasted__joint_L_Hind_Foot
+    100060: pasted__joint_L_Hind_Knee
+    100062: pasted__joint_L_hindLeg_CTRL
+    100064: pasted__joint_L_hindLeg_offset
+    100066: pasted__joint_L_hip
+    100068: pasted__joint_L_Knee
+    100070: pasted__joint_L_Shoulder
+    100072: pasted__joint_Mouth
+    100074: pasted__joint_R_Ankle
+    100076: pasted__joint_R_backKnee
+    100078: pasted__joint_R_Foot
+    100080: pasted__joint_R_frontLeg_CTRL
+    100082: pasted__joint_R_frontLeg_offset
+    100084: pasted__joint_R_Hind_Ankle
+    100086: pasted__joint_R_Hind_backKnee
+    100088: pasted__joint_R_Hind_Foot
+    100090: pasted__joint_R_Hind_Knee
+    100092: pasted__joint_R_hindLeg_CTRL
+    100094: pasted__joint_R_hindLeg_offset
+    100096: pasted__joint_R_Hip
+    100098: pasted__joint_R_Knee
+    100100: pasted__joint_R_Shoulder
+    100102: pasted__joint_Spine_1
+    100104: pasted__joint_Spine_2
+    100106: pasted__joint_Spine_3
+    100108: pasted__joint_spine_4
+    100110: pasted__joint_Spine_5
+    100112: pasted__joint_Tail_1
+    100114: pasted__joint_Tail_2
+    100116: pasted__joint_Tail_3
+    100118: pasted__joint_Tail_4
+    100120: pasted__joint_Tail_5
+    100122: pasted__nurbsCircle1
+    100124: pasted__nurbsCircle2
+    100126: pasted__nurbsCircle3
+    100128: pasted__nurbsCircle4
+    100130: pasted__nurbsSquare1
+    100132: pasted__tail1_offset
+    100134: Rig_For_V5_V4
+    100136: Tail
+    400000: CAT_Cleo_MediumMesh_Export:Cleo_High
+    400002: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart0
+    400004: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart1
+    400006: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart2
+    400008: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart3
+    400010: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj
+    400012: //RootNode
+    400014: Control
+    400016: nurbsCircle5
+    400018: pasted__group1
+    400020: pasted__ikHandle1
+    400022: pasted__ikHandle2
+    400024: pasted__ikHandle3
+    400026: pasted__ikHandle4
+    400028: pasted__ikHandle5
+    400030: pasted__ikHandle6
+    400032: pasted__ikHandle7
+    400034: pasted__ikHandle8
+    400036: pasted__joint_back_CTRL
+    400038: pasted__joint_Head
+    400040: pasted__joint_Head_CTRL
+    400042: pasted__joint_Head_offset
+    400044: pasted__joint_L_Ankle
+    400046: pasted__joint_L_backKnee
+    400048: pasted__joint_L_Foot
+    400050: pasted__joint_L_frontLeg_CTRL
+    400052: pasted__joint_L_frontLeg_offset
+    400054: pasted__joint_L_Hind_Ankle
+    400056: pasted__joint_L_Hind_backKnee
+    400058: pasted__joint_L_Hind_Foot
+    400060: pasted__joint_L_Hind_Knee
+    400062: pasted__joint_L_hindLeg_CTRL
+    400064: pasted__joint_L_hindLeg_offset
+    400066: pasted__joint_L_hip
+    400068: pasted__joint_L_Knee
+    400070: pasted__joint_L_Shoulder
+    400072: pasted__joint_Mouth
+    400074: pasted__joint_R_Ankle
+    400076: pasted__joint_R_backKnee
+    400078: pasted__joint_R_Foot
+    400080: pasted__joint_R_frontLeg_CTRL
+    400082: pasted__joint_R_frontLeg_offset
+    400084: pasted__joint_R_Hind_Ankle
+    400086: pasted__joint_R_Hind_backKnee
+    400088: pasted__joint_R_Hind_Foot
+    400090: pasted__joint_R_Hind_Knee
+    400092: pasted__joint_R_hindLeg_CTRL
+    400094: pasted__joint_R_hindLeg_offset
+    400096: pasted__joint_R_Hip
+    400098: pasted__joint_R_Knee
+    400100: pasted__joint_R_Shoulder
+    400102: pasted__joint_Spine_1
+    400104: pasted__joint_Spine_2
+    400106: pasted__joint_Spine_3
+    400108: pasted__joint_spine_4
+    400110: pasted__joint_Spine_5
+    400112: pasted__joint_Tail_1
+    400114: pasted__joint_Tail_2
+    400116: pasted__joint_Tail_3
+    400118: pasted__joint_Tail_4
+    400120: pasted__joint_Tail_5
+    400122: pasted__nurbsCircle1
+    400124: pasted__nurbsCircle2
+    400126: pasted__nurbsCircle3
+    400128: pasted__nurbsCircle4
+    400130: pasted__nurbsSquare1
+    400132: pasted__tail1_offset
+    400134: Rig_For_V5_V4
+    400136: Tail
+    4300000: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart0
+    4300002: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart1
+    4300004: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart2
+    4300006: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart0
+    13700002: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart1
+    13700004: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart2
+    13700006: CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj
+        weight: 1
+      - path: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj/CAT_Cleo_MediumMesh_Export:Cleo_High
+        weight: 1
+      - path: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj/CAT_Cleo_MediumMesh_Export:Cleo_High/CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart0
+        weight: 1
+      - path: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj/CAT_Cleo_MediumMesh_Export:Cleo_High/CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart1
+        weight: 1
+      - path: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj/CAT_Cleo_MediumMesh_Export:Cleo_High/CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart2
+        weight: 1
+      - path: CAT_Cleo_MediumMesh_Export:CM_BASE_Cleo_V5_V4_obj/CAT_Cleo_MediumMesh_Export:Cleo_High/CAT_Cleo_MediumMesh_Export:Cleo_High_MeshPart3
+        weight: 1
+      - path: Control
+        weight: 1
+      - path: Control/nurbsCircle5
+        weight: 1
+      - path: Control/pasted__joint_back_CTRL
+        weight: 1
+      - path: Control/pasted__joint_Head_CTRL
+        weight: 1
+      - path: Control/pasted__joint_L_frontLeg_CTRL
+        weight: 1
+      - path: Control/pasted__joint_L_hindLeg_CTRL
+        weight: 1
+      - path: Control/pasted__joint_R_frontLeg_CTRL
+        weight: 1
+      - path: Control/pasted__joint_R_hindLeg_CTRL
+        weight: 1
+      - path: Control/pasted__nurbsCircle1
+        weight: 1
+      - path: Control/pasted__nurbsCircle1/pasted__ikHandle1
+        weight: 1
+      - path: Control/pasted__nurbsCircle1/pasted__ikHandle4
+        weight: 1
+      - path: Control/pasted__nurbsCircle2
+        weight: 1
+      - path: Control/pasted__nurbsCircle2/pasted__ikHandle5
+        weight: 1
+      - path: Control/pasted__nurbsCircle2/pasted__ikHandle6
+        weight: 1
+      - path: Control/pasted__nurbsCircle3
+        weight: 1
+      - path: Control/pasted__nurbsCircle3/pasted__ikHandle7
+        weight: 1
+      - path: Control/pasted__nurbsCircle3/pasted__ikHandle8
+        weight: 1
+      - path: Control/pasted__nurbsCircle4
+        weight: 1
+      - path: Control/pasted__nurbsCircle4/pasted__ikHandle2
+        weight: 1
+      - path: Control/pasted__nurbsCircle4/pasted__ikHandle3
+        weight: 1
+      - path: Rig_For_V5_V4
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Head_offset
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_L_frontLeg_offset
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_L_hindLeg_offset
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_R_frontLeg_offset
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_R_hindLeg_offset
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_L_hip
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_L_hip/pasted__joint_L_Hind_Knee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_L_hip/pasted__joint_L_Hind_Knee/pasted__joint_L_Hind_backKnee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_L_hip/pasted__joint_L_Hind_Knee/pasted__joint_L_Hind_backKnee/pasted__joint_L_Hind_Ankle
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_L_hip/pasted__joint_L_Hind_Knee/pasted__joint_L_Hind_backKnee/pasted__joint_L_Hind_Ankle/pasted__joint_L_Hind_Foot
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_R_Hip
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_R_Hip/pasted__joint_R_Hind_Knee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_R_Hip/pasted__joint_R_Hind_Knee/pasted__joint_R_Hind_backKnee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_R_Hip/pasted__joint_R_Hind_Knee/pasted__joint_R_Hind_backKnee/pasted__joint_R_Hind_Ankle
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_R_Hip/pasted__joint_R_Hind_Knee/pasted__joint_R_Hind_backKnee/pasted__joint_R_Hind_Ankle/pasted__joint_R_Hind_Foot
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_Head
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_Head/pasted__joint_Mouth
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_L_Shoulder
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_L_Shoulder/pasted__joint_L_Knee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_L_Shoulder/pasted__joint_L_Knee/pasted__joint_L_backKnee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_L_Shoulder/pasted__joint_L_Knee/pasted__joint_L_backKnee/pasted__joint_L_Ankle
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_L_Shoulder/pasted__joint_L_Knee/pasted__joint_L_backKnee/pasted__joint_L_Ankle/pasted__joint_L_Foot
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_R_Shoulder
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_R_Shoulder/pasted__joint_R_Knee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_R_Shoulder/pasted__joint_R_Knee/pasted__joint_R_backKnee
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_R_Shoulder/pasted__joint_R_Knee/pasted__joint_R_backKnee/pasted__joint_R_Ankle
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_spine_4/pasted__joint_Spine_3/pasted__joint_Spine_2/pasted__joint_Spine_1/pasted__joint_R_Shoulder/pasted__joint_R_Knee/pasted__joint_R_backKnee/pasted__joint_R_Ankle/pasted__joint_R_Foot
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_Tail_1
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_Tail_1/pasted__joint_Tail_2
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_Tail_1/pasted__joint_Tail_2/pasted__joint_Tail_3
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_Tail_1/pasted__joint_Tail_2/pasted__joint_Tail_3/pasted__joint_Tail_4
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__joint_Spine_5/pasted__joint_Tail_1/pasted__joint_Tail_2/pasted__joint_Tail_3/pasted__joint_Tail_4/pasted__joint_Tail_5
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__nurbsSquare1
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__nurbsSquare1/pasted__group1
+        weight: 1
+      - path: Rig_For_V5_V4/pasted__tail1_offset
+        weight: 1
+      - path: Tail
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

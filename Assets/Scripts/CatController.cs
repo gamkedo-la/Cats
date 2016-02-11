@@ -16,6 +16,7 @@ public class CatController : MonoBehaviour {
 	public AudioClip[] meows;
 	public AudioClip purr;
 
+	Animator anim;
 	Vector3 targetMovePoint;
 	Vector3 targetWayPoint;
 	Quaternion targetRotation;
@@ -39,6 +40,7 @@ public class CatController : MonoBehaviour {
 		jumping = false; 
 		moving = false;
 		jumpHeightTester = 4.0f;
+		anim = GetComponentInChildren<Animator> ();
 		ignoreClickTesterLayer = ~LayerMask.GetMask ("ClickTester", "Ignore Raycast", "CamIgnore");
 		alsoIgnoreMouseClickOnly = ~LayerMask.GetMask ("ClickTester", "Ignore Raycast", "MouseClickOnly", "CamIgnore");
 	}
@@ -216,5 +218,10 @@ public class CatController : MonoBehaviour {
 		}
 		MoveToTarget ();
 		CatSounds ();
+		if (moving) {
+			anim.SetBool ("isMoving", true);
+		} else {
+			anim.SetBool ("isMoving", false);
+		}
 	}
 }

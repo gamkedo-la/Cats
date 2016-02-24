@@ -8,8 +8,7 @@ public class PawCursor : MonoBehaviour {
     int ignoreLayers;
 
     void Start() {
-       ignoreLayers = ~LayerMask.GetMask("Everything", "Nothing", "Default", "TransparentFX", "Ignore Raycast", "Water", "UI", "Click Tester", "Cat", "MouseClickOnly", "CamIgnore", 
-           "KittyLitter", "SphereCollider");
+       ignoreLayers = LayerMask.GetMask("Interactable");
     }
 
     void Update() {

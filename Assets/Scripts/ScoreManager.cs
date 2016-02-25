@@ -4,10 +4,13 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+	public static ScoreManager instance;
 
     public static int score;
+	public TimeDialManager timerToAddBackTo;
     public Text text;
     private AudioSource rollingScoreSound;
+	private SoundStatementSet soundStatementSet;
 
     //the rolling score displayed on screen
     public int rollingScore;
@@ -17,8 +20,12 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
+		instance = this;
+
         text = GetComponent<Text>();
         rollingScoreSound = GetComponent<AudioSource>();
+		soundStatementSet = GetComponent<SoundStatementSet>();
+
         score = 0;
         rollingScore = 0;
     }
@@ -45,6 +52,13 @@ public class ScoreManager : MonoBehaviour
 
     public static void AddPoints(int numberOfPoints)
     {
+		if(instance.soundStatementSet) {
+			instance.soundStatementSet.RandomStatement();
+		}
+		if(instance.timerToAddBackTo) {
+			instance.timerToAddBackTo.ResetTimer();
+		}
+
         score += numberOfPoints;
     }
 

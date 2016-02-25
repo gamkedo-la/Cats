@@ -218,10 +218,12 @@ public class CatController : MonoBehaviour {
 		}
 		MoveToTarget ();
 		CatSounds ();
-		if (moving) {
-			anim.SetBool ("isMoving", true);
-		} else {
-			anim.SetBool ("isMoving", false);
+		if(anim) {
+			if(moving) {
+				anim.SetBool("isMoving", true);
+			} else {
+				anim.SetBool("isMoving", false);
+			}
 		}
 	}
 }

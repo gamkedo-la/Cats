@@ -10,6 +10,8 @@ public class TimeDialManager : MonoBehaviour {
     public Text displayFinalCountdown;
     private AudioSource finalCountdownSound;
 
+	private SoundStatementSet soundStatementSet;
+
     private Image radialImage;
     private float currentTime;
     private bool paused;
@@ -29,7 +31,8 @@ public class TimeDialManager : MonoBehaviour {
 
         lastFinalCountdown = finalCountdownAmount; 
 
-}
+		soundStatementSet = GetComponent<SoundStatementSet>();
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -38,6 +41,11 @@ public class TimeDialManager : MonoBehaviour {
         {
             currentTime -= Time.deltaTime;
             radialImage.fillAmount = currentTime / startingTime;
+			if(currentTime <= 0) {
+				if(soundStatementSet) {
+					soundStatementSet.RandomStatement();
+				}
+			}
 
         }
 
@@ -50,6 +58,7 @@ public class TimeDialManager : MonoBehaviour {
             if ((lastFinalCountdown == Mathf.CeilToInt(currentTime)) && (currentTime > 0)){
                 Debug.Log("Played");
                 finalCountdownSound.Play();
+
                 lastFinalCountdown--;
             }
       

@@ -14,6 +14,7 @@ public class SoundStatementSet : MonoBehaviour {
 	public SoundPhrase[] soundArray;
 	public Text endPhraseText;
 	private bool blocked = false;
+	int prevIdx = -1;
 
 	IEnumerator clearText() {
 		blocked = true;
@@ -30,7 +31,17 @@ public class SoundStatementSet : MonoBehaviour {
 
 	public void RandomStatement() {
 		if(blocked == false && soundArray.Length > 0) {
-			SoundPhrase endStatement = soundArray[UnityEngine.Random.Range(0, soundArray.Length)];
+			int pickPhrase = -1;
+			int safetyCatch = 100;
+
+			if(soundArray.Length == 1) {
+				pickPhrase = 0;
+			} else do {
+				pickPhrase = UnityEngine.Random.Range(0, soundArray.Length);
+			} while(pickPhrase == prevIdx && safetyCatch-- > 0);
+
+			prevIdx = pickPhrase;
+			SoundPhrase endStatement = soundArray[pickPhrase];
 			SoundManager.instance.PlayClipOn(endStatement.soundFile,
 				Camera.main.transform.position, 1, Camera.main.transform);
 			if(endPhraseText) {

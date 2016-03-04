@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour {
         timer = FindObjectOfType<TimeDialManager>();
 
         canvasComponent = GameObject.Find("Canvas Level End").GetComponent<Canvas>();
-        canvasComponent.enabled = false;
+		canvasComponent.gameObject.SetActive(false);
 
         cat = FindObjectOfType<CatController>();
     }
@@ -38,6 +38,6 @@ public class LevelManager : MonoBehaviour {
     private void EndLevel()
     {
         cat.enabled = false;
-        canvasComponent.enabled = true;
+		canvasComponent.gameObject.SetActive(true);
     }
 }

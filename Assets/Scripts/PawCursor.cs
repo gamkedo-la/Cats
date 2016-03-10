@@ -6,8 +6,10 @@ public class PawCursor : MonoBehaviour {
 
     bool pawEnabled = false;
     int ignoreLayers;
+	Vector2 centerSpot;
 
     void Start() {
+		centerSpot = new Vector2(this.pawTexture.width / 2, this.pawTexture.height / 2);
        ignoreLayers = LayerMask.GetMask("Interactable");
     }
 
@@ -24,12 +26,12 @@ public class PawCursor : MonoBehaviour {
     }
 
     void PawEnable() {
-        Cursor.SetCursor(this.pawTexture, Vector2.zero, CursorMode.Auto);
+		Cursor.SetCursor(this.pawTexture, centerSpot, CursorMode.Auto);
         this.pawEnabled = true;
     }
 
     void PawDisable() {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+		Cursor.SetCursor(null, centerSpot, CursorMode.Auto);
         this.pawEnabled = false;
     }
 

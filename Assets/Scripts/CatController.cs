@@ -29,6 +29,7 @@ public class CatController : MonoBehaviour {
 	int alsoIgnoreMouseClickOnly;
 	Collider previousDestZone = null;
 	AudioSource asource;
+	FlyAround murderFly = null;
 
 	// Use this for initialization
 	void Start () {
@@ -87,7 +88,17 @@ public class CatController : MonoBehaviour {
 			} else if(clickLayer == LayerMask.NameToLayer("Interactable")){
 
 				float distToToy = Vector3.Distance (transform.position, floorHit.collider.transform.position);
-				if(distToToy < whiskerLength){
+				FlyAround faScript = floorHit.collider.GetComponent<FlyAround>();
+				if(faScript) {
+					murderFly = faScript;
+					targetMovePoint = faScript.transform.position;
+					targetRotation = transform.rotation;
+					catGoal.transform.position = faScript.transform.position;
+					moving = true;
+					previousDestZone = floorHit.collider;
+					StartJump(faScript.transform.position);
+					ScoreManager.AddPoints(200);
+				} else if(distToToy < whiskerLength){
 					ToySpinner tsScript = floorHit.collider.GetComponent<ToySpinner>();
 					Gravity gScript = floorHit.collider.GetComponent<Gravity>();
 					if(tsScript){
@@ -143,6 +154,10 @@ public class CatController : MonoBehaviour {
 	}
 
 	void EndJump(){
+		if(murderFly) {
+			Destroy(murderFly.gameObject);
+			murderFly = null;
+		}
 		jumping = false;
 		transform.rotation = Quaternion.identity;
 		rb.velocity = Vector3.zero;
@@ -169,7 +184,16 @@ public class CatController : MonoBehaviour {
 			float distToWayPoint = Vector3.Distance (transform.position, targetWayPoint);
 			if (distToWayPoint > closeEnoughToTarget){
 				transform.LookAt(targetWayPoint);
-				rb.velocity = transform.forward * leapSpeed;
+				if(murderFly) {
+					murderFly.enabled = false;
+					rb.velocity = transform.forward * leapSpeed * 2.0f;
+					if(distToWayPoint < closeEnoughToTarget * 2.0f) {
+						rb.velocity = Vector3.zero;
+						transform.position = murderFly.transform.position;
+					}						
+				} else {
+					rb.velocity = transform.forward * leapSpeed;
+				}
 			} else {
 				EndJump();
 			}

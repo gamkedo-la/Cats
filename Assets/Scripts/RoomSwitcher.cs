@@ -8,7 +8,7 @@ public class RoomSwitcher : MonoBehaviour {
 	public int roomIndexNext;
 	public float camTrollySpeed = 3.0f;
 	public CatCam catCam;
-
+	public CatController theCat;
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,6 +33,7 @@ public class RoomSwitcher : MonoBehaviour {
 				Camera.main.transform.position = roomList [roomIndexNext].cameraSpawnPoint.position;
 				roomIndexCurrent = roomIndexNext;
 				catCam.enabled = true;
+				theCat.transform.position = roomList[roomIndexNext].catSpawnPoint.position;
 			} else {
 				Camera.main.transform.position += moveThisFrame * vectDif.normalized;
 			}

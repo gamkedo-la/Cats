@@ -15,6 +15,8 @@ public class CatController : MonoBehaviour {
 	public float adjacentMoveMax = 1.0f;
 	public AudioClip[] meows;
 	public AudioClip purr;
+	public bool moving;
+
 
 	Animator anim;
 	Vector3 targetMovePoint;
@@ -23,7 +25,6 @@ public class CatController : MonoBehaviour {
 	Rigidbody rb;
 	Collider col;
 	bool jumping;
-	bool moving;
 	float jumpHeightTester;
 	int ignoreClickTesterLayer;
 	int alsoIgnoreMouseClickOnly;
@@ -175,7 +176,10 @@ public class CatController : MonoBehaviour {
 		}
 	}
 
-	void MoveToTarget(){
+	public void MoveToTarget(Transform targetMP = null){
+		if (targetMP != null) {
+			targetMovePoint = targetMP.transform.position;
+		}
 		float distToTarget = Vector3.Distance (transform.position, targetMovePoint);
 		if (moving == false) {
 			return;

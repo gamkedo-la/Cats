@@ -35,6 +35,10 @@ public class LevelManager : MonoBehaviour {
         Application.LoadLevel(nextLevelToLoad);
     }
 
+    public void QuitGame() {
+        Application.Quit();
+    }
+
     private void EndLevel()
     {
         cat.enabled = false;

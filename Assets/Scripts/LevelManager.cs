@@ -30,6 +30,10 @@ public class LevelManager : MonoBehaviour {
         }
 	}
 
+	public void LoadIntroLevel(){
+		Application.LoadLevel("intro");
+	}
+
     public void LoadNextLevel()
     {
         Application.LoadLevel(nextLevelToLoad);

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
 	public static ScoreManager instance;
-
+	public int winningScore = 1000;
     public static int score;
 	public TimeDialManager timerToAddBackTo;
     public Text text;
@@ -29,6 +29,16 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         rollingScore = 0;
     }
+
+	public void CheckFinalScore(){
+		if (score > winningScore) {
+			if (instance.soundStatementSet) {
+				instance.soundStatementSet.RandomStatement ();
+			} 
+		}else {
+			timerToAddBackTo.FailedGame ();
+		}
+	}
 
     void Update()
     {
@@ -55,9 +65,9 @@ public class ScoreManager : MonoBehaviour
 		if(instance.soundStatementSet) {
 			instance.soundStatementSet.RandomStatement();
 		}
-		if(instance.timerToAddBackTo) {
-			instance.timerToAddBackTo.ResetTimer();
-		}
+//		if(instance.timerToAddBackTo) {
+//			instance.timerToAddBackTo.ResetTimer();
+//		}
 
         score += numberOfPoints;
     }

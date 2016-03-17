@@ -5,38 +5,79 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour {
 
     public string nextLevelToLoad;
+	public string currentLevel;
+	public string lastLevelToLoad;
+	public Transform catBedroomRoomSpawn;
+	public Transform camBedroomRoomSpawn;
+	public Transform catKitchenSpawn;
+	public Transform camKitchenSpawn;
+	public RoomSwitcher switcher;
+	public Button nextLevelButton;
+	public Button endGameButton;
 
     private TimeDialManager timer;
-    private Canvas canvasComponent;
+	public GameObject canvasComponent;
     private CatController cat;
+	private bool end = false;
+	public ScoreManager scoreManager;
 
     // Use this for initialization
     void Start () {
 
         timer = FindObjectOfType<TimeDialManager>();
-
-        canvasComponent = GameObject.Find("Canvas Level End").GetComponent<Canvas>();
-		canvasComponent.gameObject.SetActive(false);
+	
+		canvasComponent.SetActive(false);
 
         cat = FindObjectOfType<CatController>();
+		endGameButton.gameObject.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (timer.CheckIfTimeIsUp())
+		if (timer.CheckIfTimeIsUp() && end == false)
         {
             EndLevel();
+			end = true;
         }
+	}
+
+	public void SetNextLevel(Transform camera, Transform cat, string roomName){
+		if (roomName == "bedroom") {
+			catBedroomRoomSpawn = cat;
+			camBedroomRoomSpawn = camera;
+		} else {
+			catKitchenSpawn = cat;
+			camKitchenSpawn = camera;
+		}
+	}
+
+	public void LoadMainMenu(){
+		Application.LoadLevel("mainmenu");
 	}
 
 	public void LoadIntroLevel(){
 		Application.LoadLevel("intro");
 	}
 
+	public void LoadGame(){
+		Application.LoadLevel ("livingroom");
+	}
+
     public void LoadNextLevel()
     {
-        Application.LoadLevel(nextLevelToLoad);
+		if (currentLevel == nextLevelToLoad) {
+			switcher.ChangeRoom (lastLevelToLoad);
+			currentLevel = lastLevelToLoad;
+			timer.ResetTimer (5);
+		} else {
+			switcher.ChangeRoom (nextLevelToLoad);
+			currentLevel = nextLevelToLoad;
+			timer.ResetTimer (2);
+		}
+		canvasComponent.SetActive(false);
+		end = false;
+
     }
 
     public void QuitGame() {
@@ -45,7 +86,13 @@ public class LevelManager : MonoBehaviour {
 
     private void EndLevel()
     {
-        cat.enabled = false;
-		canvasComponent.gameObject.SetActive(true);
+		Camera.main.GetComponent<AudioSource> ().Stop ();
+		cat.betweenLevels = true;
+		if (currentLevel == lastLevelToLoad) {
+			scoreManager.CheckFinalScore();
+			nextLevelButton.gameObject.SetActive(false);
+			endGameButton.gameObject.SetActive(true);
+		}
+		canvasComponent.SetActive(true);
     }
 }

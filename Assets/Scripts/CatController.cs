@@ -16,6 +16,7 @@ public class CatController : MonoBehaviour {
 	public AudioClip[] meows;
 	public AudioClip purr;
 	public bool moving;
+	public bool betweenLevels = false;
 
 
 	Animator anim;
@@ -108,7 +109,7 @@ public class CatController : MonoBehaviour {
 						gScript.EnableGravity();
 					} else {
 						Rigidbody toyRB = floorHit.collider.attachedRigidbody;
-						Debug.Log("toy touched");
+//						Debug.Log("toy touched");
 						Vector3 vectDif = floorHit.collider.transform.position - transform.position;
 						toyRB.AddForce(vectDif * catPowForce);
 						SoundWhenHitHardEnough SWHHEScript = floorHit.collider.GetComponent<SoundWhenHitHardEnough>();
@@ -242,7 +243,9 @@ public class CatController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetMouseButtonDown (0)) {
-			MouseTarget ();
+			if (betweenLevels == false) {
+				MouseTarget ();	
+			}
 		}
 		MoveToTarget ();
 		CatSounds ();

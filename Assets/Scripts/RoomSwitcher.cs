@@ -9,7 +9,18 @@ public class RoomSwitcher : MonoBehaviour {
 	public float camTrollySpeed = 3.0f;
 	public CatCam catCam;
 	public CatController theCat;
-	
+
+
+	public void ChangeRoom(string roomName){
+		if (roomName == "bedroom") {
+			roomIndexNext = 1;
+			theCat.betweenLevels = false;
+		}
+		if (roomName == "kitchen") {
+			roomIndexNext = 0;
+			theCat.betweenLevels = false;
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.E)) {

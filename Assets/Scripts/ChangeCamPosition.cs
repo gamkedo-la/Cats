@@ -15,7 +15,7 @@ public class ChangeCamPosition : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		Debug.Log ("Entered Camera, target: " + name + " " + other.name);
+//		Debug.Log ("Entered Camera, target: " + name + " " + other.name);
 		if(other.gameObject.layer == LayerMask.NameToLayer("ClickTester")){
 			changeCamPos = true;
 		}

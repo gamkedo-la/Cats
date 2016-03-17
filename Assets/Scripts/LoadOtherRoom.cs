@@ -7,6 +7,7 @@ public class LoadOtherRoom : MonoBehaviour {
 	public Transform roomSpawnPoint;
 	public Transform cameraSpawnPoint;
 	public Transform catSpawnPoint;
+	public LevelManager levelManager;
 
 	// Use this for initialization
 
@@ -18,6 +19,7 @@ public class LoadOtherRoom : MonoBehaviour {
 		cameraSpawnPoint = tempGO.transform.Find ("MainCamSpawnPoint");
 		cameraSpawnPoint.name += otherRoomName;
 		catSpawnPoint = tempGO.transform.Find ("CatSpawnPoint");
+		levelManager.SetNextLevel (cameraSpawnPoint, catSpawnPoint, otherRoomName);
 
 	}
 	void Start () {

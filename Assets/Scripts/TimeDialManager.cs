@@ -33,7 +33,12 @@ public class TimeDialManager : MonoBehaviour {
 
 		soundStatementSet = GetComponent<SoundStatementSet>();
 	}
-	
+
+	public void FailedGame(){
+		if(soundStatementSet) {
+			soundStatementSet.RandomStatement();
+		}
+	}
 	// Update is called once per frame
 	void Update () {
 
@@ -41,11 +46,11 @@ public class TimeDialManager : MonoBehaviour {
         {
             currentTime -= Time.deltaTime;
             radialImage.fillAmount = currentTime / startingTime;
-			if(currentTime <= 0) {
-				if(soundStatementSet) {
-					soundStatementSet.RandomStatement();
-				}
-			}
+//			if(currentTime <= 0) {
+//				if(soundStatementSet) {
+//					soundStatementSet.RandomStatement();
+//				}
+//			}
 
         }
 
@@ -56,7 +61,7 @@ public class TimeDialManager : MonoBehaviour {
 
             //plays sound only when the number changes
             if ((lastFinalCountdown == Mathf.CeilToInt(currentTime)) && (currentTime > 0)){
-                Debug.Log("Played");
+//                Debug.Log("Played");
                 finalCountdownSound.Play();
 
                 lastFinalCountdown--;
@@ -71,11 +76,13 @@ public class TimeDialManager : MonoBehaviour {
 
     }
 
-    public void ResetTimer()
+	public void ResetTimer(int delay)
     {
         currentTime = startingTime;
+		currentTime += delay;
         displayFinalCountdown.enabled = false;
         lastFinalCountdown = finalCountdownAmount;
+		Camera.main.GetComponent<AudioSource> ().PlayDelayed (delay);
     }
 
     public void StartTimer()

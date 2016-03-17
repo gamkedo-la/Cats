@@ -78,7 +78,7 @@ public class TimeDialManager : MonoBehaviour {
 
 	public void ResetTimer(int delay)
     {
-        currentTime = startingTime;
+        currentTime = startingTime + 11;
 		currentTime += delay;
         displayFinalCountdown.enabled = false;
         lastFinalCountdown = finalCountdownAmount;

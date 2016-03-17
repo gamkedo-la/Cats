@@ -32,6 +32,7 @@ public class CatController : MonoBehaviour {
 	Collider previousDestZone = null;
 	AudioSource asource;
 	FlyAround murderFly = null;
+	RunAround murderRat = null;
 
 	// Use this for initialization
 	void Start () {
@@ -91,7 +92,17 @@ public class CatController : MonoBehaviour {
 
 				float distToToy = Vector3.Distance (transform.position, floorHit.collider.transform.position);
 				FlyAround faScript = floorHit.collider.GetComponent<FlyAround>();
-				if(faScript) {
+				RunAround raScript = floorHit.collider.GetComponent<RunAround>();
+				if(raScript) {
+					murderRat = raScript;
+					targetMovePoint = raScript.transform.position;
+					targetRotation = transform.rotation;
+					catGoal.transform.position = raScript.transform.position;
+					moving = true;
+					previousDestZone = floorHit.collider;
+					StartJump(raScript.transform.position);
+					ScoreManager.AddPoints(200);
+				} else if(faScript) {
 					murderFly = faScript;
 					targetMovePoint = faScript.transform.position;
 					targetRotation = transform.rotation;
@@ -156,6 +167,10 @@ public class CatController : MonoBehaviour {
 	}
 
 	void EndJump(){
+		if(murderRat) {
+			Destroy(murderRat.gameObject);
+			murderRat = null;
+		}
 		if(murderFly) {
 			Destroy(murderFly.gameObject);
 			murderFly = null;
@@ -189,7 +204,14 @@ public class CatController : MonoBehaviour {
 			float distToWayPoint = Vector3.Distance (transform.position, targetWayPoint);
 			if (distToWayPoint > closeEnoughToTarget){
 				transform.LookAt(targetWayPoint);
-				if(murderFly) {
+				if(murderRat) {
+					murderRat.enabled = false;
+					rb.velocity = transform.forward * leapSpeed * 2.0f;
+					if(distToWayPoint < closeEnoughToTarget * 2.0f) {
+						rb.velocity = Vector3.zero;
+						transform.position = murderRat.transform.position;
+					}						
+				} else if(murderFly) {
 					murderFly.enabled = false;
 					rb.velocity = transform.forward * leapSpeed * 2.0f;
 					if(distToWayPoint < closeEnoughToTarget * 2.0f) {

@@ -26,16 +26,20 @@ public class LevelManager : MonoBehaviour {
 
         timer = FindObjectOfType<TimeDialManager>();
 	
-		canvasComponent.SetActive(false);
+		if(canvasComponent) {
+			canvasComponent.SetActive(false);
+		}
 
         cat = FindObjectOfType<CatController>();
-		endGameButton.gameObject.SetActive(false);
+		if(endGameButton) {
+			endGameButton.gameObject.SetActive(false);
+		}
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (timer.CheckIfTimeIsUp() && end == false)
+		if (timer && timer.CheckIfTimeIsUp() && end == false)
         {
             EndLevel();
 			end = true;
@@ -74,8 +78,11 @@ public class LevelManager : MonoBehaviour {
 			switcher.ChangeRoom (nextLevelToLoad);
 			currentLevel = nextLevelToLoad;
 			timer.ResetTimer (2);
+		
 		}
-		canvasComponent.SetActive(false);
+		if(canvasComponent) {
+			canvasComponent.SetActive(false);
+		}
 		end = false;
 
     }
@@ -91,8 +98,12 @@ public class LevelManager : MonoBehaviour {
 		if (currentLevel == lastLevelToLoad) {
 			scoreManager.CheckFinalScore();
 			nextLevelButton.gameObject.SetActive(false);
-			endGameButton.gameObject.SetActive(true);
+			if(endGameButton) {
+				endGameButton.gameObject.SetActive(true);
+			}
 		}
-		canvasComponent.SetActive(true);
+		if(canvasComponent) {
+			canvasComponent.SetActive(true);
+		}
     }
 }
